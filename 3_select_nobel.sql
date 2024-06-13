@@ -53,3 +53,26 @@ FROM nobel
 WHERE (yr < 1910 AND subject='Medicine') OR 
 (yr>=2004 AND subject='Literature')
 
+--11. umlaut
+SELECT *
+  FROM nobel 
+  WHERE winner IN ('Peter Grünberg')
+;
+
+--12.apostrophe
+SELECT *
+  FROM nobel 
+  WHERE winner IN ('Eugene O''Neill')
+;
+
+--13. start with sir and order by year desc, winner
+SELECT winner,yr,subject
+FROM nobel
+WHERE winner LIKE 'Sir%' ORDER BY  yr DESC ,winner
+
+--14. physics, chemistry(order by)
+SELECT winner, subject
+  FROM nobel
+  WHERE yr=1984
+  ORDER BY subject IN ('Physics','Chemistry'),subject,winner
+;
